@@ -2,49 +2,33 @@ package com.geekbrains;
 
 public class main {
     public static void main(String[] args) {
-        printThreeWords();
-        checkSumSign(5, 10);
-        printColor();
-        compareNumbers();
+        checkSum(5, 7);
+        isPositiveOrNegative(-10);
+        isNegative(7);
+        printWordNTimes(9, "alina");
     }
 
-
-    private static void printThreeWords() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-
+    public static boolean checkSum(int a, int b) {
+        int i = a + b;
+        return i >= 10 && i <= 20;
     }
 
-    private static void checkSumSign(int a, int b) {
-        int sum = a + b;
-        if (a + b >= 0) {
-            System.out.println("Сумма положительная");
+    public static void isPositiveOrNegative(int a) {
+        if (a >= 0) {
+            System.out.println("Положительное");
         } else {
-            System.out.println("Сумма отрицательная");
+            System.out.println("Отрицательное");
         }
     }
 
-    private static void printColor() {
-        int value = 106;
-        if (value <= 0) {
-            System.out.println("Красный");
-        }
-        if (value > 0 && value <= 100) {
-            System.out.println("Желтый");
-        }
-        if (value > 100) {
-            System.out.println("Зеленый");
-        }
+    public static boolean isNegative(int a) {
+        return a < 0;
     }
 
-    private static void compareNumbers() {
-        int a = 10;
-        int b = 15;
-        if (a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
+    public static void printWordNTimes(int n, String l) {
+        for (int i = 0; i < n; i++) {
+            System.out.println(l);
         }
     }
 }
+
