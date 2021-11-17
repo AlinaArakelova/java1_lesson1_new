@@ -1,34 +1,55 @@
 package com.geekbrains;
 
-public class main {
+import java.util.Arrays;
+
+public class main<len> {
     public static void main(String[] args) {
-        checkSum(5, 7);
-        isPositiveOrNegative(-10);
-        isNegative(7);
-        printWordNTimes(9, "alina");
-    }
-
-    public static boolean checkSum(int a, int b) {
-        int i = a + b;
-        return i >= 10 && i <= 20;
-    }
-
-    public static void isPositiveOrNegative(int a) {
-        if (a >= 0) {
-            System.out.println("Положительное");
-        } else {
-            System.out.println("Отрицательное");
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
+                arr[i] = 0;
+            } else {
+                arr[i] = 1;
+            }
         }
-    }
+        System.out.println(Arrays.toString(arr));
 
-    public static boolean isNegative(int a) {
-        return a < 0;
-    }
-
-    public static void printWordNTimes(int n, String l) {
-        for (int i = 0; i < n; i++) {
-            System.out.println(l);
+        int[] arr1 = new int[100];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = i + 1;
         }
+        System.out.println(Arrays.toString(arr1));
+
+        int[] arr2 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] < 6) {
+                arr2[i] = arr2[i] * 2;
+            }
+        }
+        System.out.println(Arrays.toString(arr2));
+
+
+        int rows = 5;
+        int cols = 5;
+        int[][] arr3 = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            arr3[i][i] = 1;
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(arr3[i][j] + " ");
+
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static int[] myMethod(int len, int initialValue) {
+        int arr[] = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = initialValue;
+        }
+        return arr;
     }
 }
-
