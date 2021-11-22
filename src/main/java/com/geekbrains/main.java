@@ -1,50 +1,55 @@
 package com.geekbrains;
 
-public class main {
+import java.util.Arrays;
+
+public class main<len> {
     public static void main(String[] args) {
-        printThreeWords();
-        checkSumSign(5, 10);
-        printColor();
-        compareNumbers();
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
+                arr[i] = 0;
+            } else {
+                arr[i] = 1;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+
+        int[] arr1 = new int[100];
+        for (int i = 0; i < arr1.length; i++) {
+            arr1[i] = i + 1;
+        }
+        System.out.println(Arrays.toString(arr1));
+
+        int[] arr2 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        for (int i = 0; i < arr2.length; i++) {
+            if (arr2[i] < 6) {
+                arr2[i] = arr2[i] * 2;
+            }
+        }
+        System.out.println(Arrays.toString(arr2));
+
+
+        int rows = 5;
+        int cols = 5;
+        int[][] arr3 = new int[rows][cols];
+        for (int i = 0; i < rows; i++) {
+            arr3[i][i] = 1;
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(arr3[i][j] + " ");
+
+            }
+            System.out.println();
+        }
+
     }
 
-
-    private static void printThreeWords() {
-        System.out.println("Orange");
-        System.out.println("Banana");
-        System.out.println("Apple");
-
-    }
-
-    private static void checkSumSign(int a, int b) {
-        int sum = a + b;
-        if (a + b >= 0) {
-            System.out.println("Сумма положительная");
-        } else {
-            System.out.println("Сумма отрицательная");
+    public static int[] myMethod(int len, int initialValue) {
+        int arr[] = new int[len];
+        for (int i = 0; i < len; i++) {
+            arr[i] = initialValue;
         }
-    }
-
-    private static void printColor() {
-        int value = 106;
-        if (value <= 0) {
-            System.out.println("Красный");
-        }
-        if (value > 0 && value <= 100) {
-            System.out.println("Желтый");
-        }
-        if (value > 100) {
-            System.out.println("Зеленый");
-        }
-    }
-
-    private static void compareNumbers() {
-        int a = 10;
-        int b = 15;
-        if (a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
-        }
+        return arr;
     }
 }
