@@ -1,25 +1,33 @@
 package com.geekbrains;
 
-public class MainApp {
-    public static void main(String[] args) {
-        Cat[] catName = new Cat[3];
-        catName[0] = new Cat("Murzik");
-        catName[1] = new Cat("Milashka");
-        catName[2] = new Cat("Polosatik");
+import javax.naming.Name;
 
-        Plate plate = new Plate(10);
+public class Plate {
+    private int food;
 
+    public Plate(int food) {
+        this.food = food;
+    }
 
-        plate.info();
-
-        for (int i = 0; i < catName.length; i++) {
-            catName[i].eat(plate);
-            catName[i].info();
+    public boolean decreaseFood(int amount) {
+        if (amount > food) {
+            return false;
+        } else {
+            food -= amount;
+            return true;
         }
+    }
 
+    public void increaseFood(int amount) {
+        food += amount;
+    }
 
-        plate.info();
+    public int getFood() {
+        return food;
+    }
 
+    public void info() {
+        System.out.printf("Plate [ Food: %d ]\n", food);
     }
 }
 //1. Расширить задачу про котов и тарелки с едой.

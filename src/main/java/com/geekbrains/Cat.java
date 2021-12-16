@@ -1,17 +1,44 @@
 package com.geekbrains;
 
-public class Cat extends Animal {
-    public Cat(String name, int run, int swim) {
+public class Cat {
+    private String name;
+    private int appetite;
+    private boolean isHungry;
+    private boolean full;
+
+    public Cat(String name) {
         this.name = name;
-        maxDistanceRun = run;
-        maxDistanceSwim = swim;
+        this.appetite = 5;
+        this.isHungry = true;
+        this.full = false;
+    }
+
+    public void setHungry(boolean hungry) {
+        isHungry = hungry;
+    }
+
+    public int getAppetite() {
+        return appetite;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void info() {
+        System.out.println("Name: " + name + ", hungry: " + isHungry + ", full: " + full);
+    }
+
+    public void eat(Plate plate) {
+        if (plate.decreaseFood(appetite) == true) {
+            System.out.println(name + " поел из тарелки");
+            isHungry = false;
+            full = true;
+        } else {
+            System.out.println(name +  " недостаточно еды");
+            isHungry = true;
+            full = false;
+
+        }
     }
 }
-
-
-//1. Создать классы Собака и Кот с наследованием от класса Животное.
-//2. Все животные могут бежать и плыть. В качестве параметра каждому методу
-// передается длина препятствия. Результатом выполнения действия будет печать в консоль.
-// (Например, dogBobik.run(150); -> 'Бобик пробежал 150 м.');
-//3. У каждого животного есть ограничения на действия (бег: кот 200 м., собака 500 м.; плавание: кот не умеет плавать, собака 10 м.).
-//4. * Добавить подсчет созданных котов, собак и животных.
